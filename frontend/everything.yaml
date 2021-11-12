@@ -1,10 +1,10 @@
 # Namespace for frontend
-#apiVersion: v1
-#kind: Namespace
-#metadata:
-#  name: frontend
-#  labels:
-#    name: frontend
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: frontend
+  labels:
+    name: frontend
 
 ---
 
@@ -40,7 +40,7 @@ spec:
      labels:
        app: asset-cache
     spec:
-      serviceAccountName: frontend-sa
+      serviceAccount: frontend-sa
       imagePullSecrets:
       - name: rhacs-demo-pull-pull-secret
       containers:
@@ -195,6 +195,7 @@ subjects:
 - kind: ServiceAccount
   name: frontend-sa
   namespace: frontend
+
 
 ---
 

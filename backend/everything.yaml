@@ -88,8 +88,13 @@ metadata:
   labels:
     app: backend-atlas
 rules:
-- apiGroups: [""]
-  resources: ["configmaps"]
+- apiGroups: 
+  - security.openshift.io
+  resourceNames:
+  - anyuid
+  resources: 
+  - configmaps
+  - securitycontextconstraints
   verbs: ["*"]
 
 ---
@@ -346,3 +351,4 @@ spec:
   selector:
     app: varnish
   type: ClusterIP
+
